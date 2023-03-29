@@ -1,0 +1,21 @@
+<main>
+  <div class="info">
+    <div>P1: <img alt="circle" src="./assets/circle.svg"/></div>
+    <div>P2: <img alt="x mark" src="./assets/x.svg"/></div>
+    <button (click)="onReset()"><img alt="refresh" src="./assets/refresh.svg"/></button>
+  </div>
+
+  <div class="field">
+    <ng-container *ngFor="let cell of field;let i = index">
+      <div (click)="onClick(i)" class="cell">
+        <img *ngIf="field[i]" alt="cell" src="./assets/{{field[i]}}.svg"/>
+      </div>
+    </ng-container>
+  </div>
+
+  <div [ngClass]="playWon" class="result">
+    <div *ngIf="playWon && playWon !== 'draw'" [ngClass]="playWon">Congratulations! {{playWon}} won</div>
+    <div *ngIf="playWon === 'draw'">It's a draw.</div>
+    <div *ngIf="!playWon">Current player {{player}}</div>
+  </div>
+</main>
