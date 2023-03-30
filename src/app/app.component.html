@@ -1,14 +1,14 @@
 <main>
   <ng-container>
-    <div *ngIf="playWon" [ngClass]="playWon" class="result">
-      <div *ngIf="playWon !== 'draw'" [ngClass]="playWon">Congratulations! {{playWon}} wins.</div>
-      <div *ngIf="playWon === 'draw'" class="draw">Draw!</div>
+    <div *ngIf="game.playWon" [ngClass]="game.playWon" class="result">
+      <div *ngIf="game.playWon !== 'draw'" [ngClass]="game.playWon">Congratulations! {{game.playWon}} wins.</div>
+      <div *ngIf="game.playWon === 'draw'" class="draw">Draw!</div>
     </div>
-    <img *ngIf="!playWon" alt="cell" class="current-player" src="./assets/{{player}}.svg"/>
+    <img *ngIf="!game.playWon" alt="cell" class="current-player" src="./assets/{{game.player}}.svg"/>
   </ng-container>
 
   <div class="field">
-    <ng-container *ngFor="let cell of field;let i = index">
+    <ng-container *ngFor="let cell of game.field;let i = index">
       <div (click)="onClick(i)" class="cell">
         <img *ngIf="cell" alt="cell" src="./assets/{{cell}}.svg"/>
       </div>
