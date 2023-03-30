@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1680203619753,
+  "timestamp": 1680203766110,
   "index": "/tic-tac-toe_angular/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/tic-tac-toe_angular/assets/refresh.svg",
         "/tic-tac-toe_angular/assets/x.svg",
         "/tic-tac-toe_angular/index.html",
-        "/tic-tac-toe_angular/main.a6a372ff9a5d2938.js",
+        "/tic-tac-toe_angular/main.92e76c61f0c78237.js",
         "/tic-tac-toe_angular/manifest.webmanifest",
         "/tic-tac-toe_angular/polyfills.cf17f9c9def0fa07.js",
         "/tic-tac-toe_angular/runtime.39d20ba8fca8e3f8.js",
@@ -54,8 +54,8 @@
     "/tic-tac-toe_angular/assets/icons/tic-tac-toe-64.png": "363c6d04230d35675e67385d574c57555161b892",
     "/tic-tac-toe_angular/assets/refresh.svg": "7000313a74543e81c7e5cb23cd27d89a4c5a1854",
     "/tic-tac-toe_angular/assets/x.svg": "159c75fa84fdaba902874b859f25d0a313d2696f",
-    "/tic-tac-toe_angular/index.html": "8b2af9ed27a0b0db881744b6cb76ad3bd79edcb4",
-    "/tic-tac-toe_angular/main.a6a372ff9a5d2938.js": "c4bbb9ec2dd6f2f79dbcd78dd2c6ae13ee542b40",
+    "/tic-tac-toe_angular/index.html": "6b3fe6581df406f3609ec6ecc7382b90c680d94a",
+    "/tic-tac-toe_angular/main.92e76c61f0c78237.js": "40a056466dab08e05c949bc2c9450deb404d9b93",
     "/tic-tac-toe_angular/manifest.webmanifest": "c652a14140a343db73e8bf5de0f3c2033b7bd7cc",
     "/tic-tac-toe_angular/polyfills.cf17f9c9def0fa07.js": "ab8b24b070f4101582db8998eba6ce7efffb6b31",
     "/tic-tac-toe_angular/runtime.39d20ba8fca8e3f8.js": "f9f2aaabfa7d03a1c3d0f5784bf89d907d0a4b05",
