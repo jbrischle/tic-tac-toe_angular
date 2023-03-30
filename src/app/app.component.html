@@ -1,7 +1,7 @@
 <main>
   <ng-container>
     <div *ngIf="playWon" [ngClass]="playWon" class="result">
-      <div *ngIf="playWon !== 'draw'" [ngClass]="playWon">Congratulations! {{playWon}} won</div>
+      <div *ngIf="playWon !== 'draw'" [ngClass]="playWon">Congratulations! {{playWon}} wins.</div>
       <div *ngIf="playWon === 'draw'" class="draw">Draw!</div>
     </div>
     <img *ngIf="!playWon" alt="cell" class="current-player" src="./assets/{{player}}.svg"/>
