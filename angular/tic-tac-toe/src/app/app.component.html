@@ -1,21 +1,22 @@
 <main>
-  <div class="info">
-    <div>P1: <img alt="circle" src="./assets/circle.svg"/></div>
-    <div>P2: <img alt="x mark" src="./assets/x.svg"/></div>
-    <button (click)="onReset()"><img alt="refresh" src="./assets/refresh.svg"/></button>
-  </div>
+  <ng-container>
+    <div *ngIf="playWon" [ngClass]="playWon" class="result">
+      <div *ngIf="playWon !== 'draw'" [ngClass]="playWon">Congratulations! {{playWon}} won</div>
+      <div *ngIf="playWon === 'draw'" class="draw">Unentschieden!!!</div>
+    </div>
+    <img *ngIf="!playWon" alt="cell" class="current-player" src="./assets/{{player}}.svg"/>
+  </ng-container>
 
   <div class="field">
     <ng-container *ngFor="let cell of field;let i = index">
       <div (click)="onClick(i)" class="cell">
-        <img *ngIf="field[i]" alt="cell" src="./assets/{{field[i]}}.svg"/>
+        <img *ngIf="cell" alt="cell" src="./assets/{{cell}}.svg"/>
       </div>
     </ng-container>
   </div>
 
-  <div [ngClass]="playWon" class="result">
-    <div *ngIf="playWon && playWon !== 'draw'" [ngClass]="playWon">Congratulations! {{playWon}} won</div>
-    <div *ngIf="playWon === 'draw'">It's a draw.</div>
-    <div *ngIf="!playWon">Current player {{player}}</div>
-  </div>
+  <button (click)="onReset()">
+    <img alt="refresh" src="./assets/refresh.svg"/>
+  </button>
+
 </main>

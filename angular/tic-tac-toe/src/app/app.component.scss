@@ -1,44 +1,23 @@
 :host {
   --color-p1: #2a52be;
   --color-p2: #00ab66;
-  --color-neutral: #9887af
+  --color-field: #EBBC6D;
+  --color-neutral: #DD9065
 }
-
 
 main {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
-}
-
-.info {
-  display: flex;
-  gap: 1rem;
-
-  div {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    font-weight: bolder;
-    font-size: x-large;
-
-    img {
-      width: 20px;
-    }
-  }
-
-  div:nth-child(1) {
-    color: var(--color-p1);
-  }
-
-  div:nth-child(2) {
-    color: var(--color-p2);
-  }
+  height: 100vh;
+  overflow: hidden;
 }
 
 .field {
   display: grid;
+  justify-content: center;
   grid-template-columns: auto auto auto;
   gap: 0.2rem;
 }
@@ -48,43 +27,52 @@ main {
   cursor: pointer;
   width: 50px;
   height: 50px;
+  border-radius: 2px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-color: var(--color-neutral);
-
-  img {
-    width: 50px;
-  }
+  background-color: var(--color-field);
 }
 
 .result {
   padding: 0.5rem;
   border-radius: 5px;
-
+  align-items: center;
+  font-family: Verdana, system-ui;
+  font-weight: bolder;
+  font-size: large;
 }
 
 .circle {
   background-color: var(--color-p1);
-  align-items: center;
-  font-weight: bolder;
-  font-size: x-large;
 }
-
 
 .x {
   background-color: var(--color-p2);
-  align-items: center;
-  font-weight: bolder;
-  font-size: x-large;
+}
+
+.draw {
+  background-color: var(--color-neutral);
 }
 
 button {
   display: flex;
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: none;
+  background-color: lightgrey;
 
   img {
     width: 20px;
   }
+}
+
+.current-player {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--color-neutral);
+  width: 20px;
+  height: 20px;
 }

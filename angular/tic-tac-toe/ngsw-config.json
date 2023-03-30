@@ -14,7 +14,8 @@
           "/*.js",
           "/assets/circle.svg",
           "/assets/refresh.svg",
-          "/assets/x.svg"
+          "/assets/x.svg",
+          "/assets/tic-tac-toe-16.png"
         ]
       }
     },

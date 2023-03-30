@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+type icon = 'circle' | 'x';
+type cell = icon | null;
+type result = icon | 'draw' | null
+
 @Component({
              selector:    'app-root',
              templateUrl: './app.component.html',
@@ -109,7 +113,3 @@ export class AppComponent {
     }
   }
 }
-
-type icon = 'circle' | 'x';
-type cell = icon | null;
-type result = icon | 'draw' | null
