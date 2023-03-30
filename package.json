@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve --open",
-    "build": "ng build --configuration production --base-href=/tic-tac-toe_angular\n/"
+    "build": "ng build --configuration production --base-href=/tic-tac-toe_angular/"
   },
   "private": true,
   "dependencies": {
