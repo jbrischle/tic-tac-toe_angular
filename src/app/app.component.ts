@@ -10,9 +10,12 @@ type result = icon | 'draw' | null
              styleUrls:   ['./app.component.scss']
            })
 export class AppComponent {
-  player: icon = 'circle';
-  field: cell[] = [null, null, null, null, null, null, null, null, null];
-  playWon: result = null;
+  private readonly DEFAULT_PLAYER: icon = 'circle';
+  player: icon = this.DEFAULT_PLAYER;
+  private readonly DEFAULT_FIELD: cell[] = [null, null, null, null, null, null, null, null, null];
+  field: cell[] = this.DEFAULT_FIELD;
+  private readonly DEFAULT_PLAYWON: result = null;
+  playWon: result = this.DEFAULT_PLAYWON;
 
   onClick(field: number) {
     if (this.playWon) {
@@ -35,7 +38,9 @@ export class AppComponent {
   }
 
   onReset(): void {
-    window.location.reload();
+    this.player = this.DEFAULT_PLAYER;
+    this.field = this.DEFAULT_FIELD;
+    this.playWon = this.DEFAULT_PLAYWON;
   }
 
   private checkGameEndCondition() {

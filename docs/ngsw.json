@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1680207933562,
+  "timestamp": 1680208692121,
   "index": "/tic-tac-toe_angular/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/tic-tac-toe_angular/assets/refresh.svg",
         "/tic-tac-toe_angular/assets/x.svg",
         "/tic-tac-toe_angular/index.html",
-        "/tic-tac-toe_angular/main.8edf0fda84a5bd48.js",
+        "/tic-tac-toe_angular/main.7ca50fa99a6917be.js",
         "/tic-tac-toe_angular/manifest.webmanifest",
         "/tic-tac-toe_angular/polyfills.cf17f9c9def0fa07.js",
         "/tic-tac-toe_angular/runtime.39d20ba8fca8e3f8.js",
@@ -46,7 +46,7 @@
   "dataGroups": [],
   "hashTable": {
     "/tic-tac-toe_angular/assets/circle.svg": "db51a27a74802fbed0f63b2397c2a578d2021d03",
-    "/tic-tac-toe_angular/assets/github.svg": "f202b6faccfd5cc46299b976c2635fee60b55aa0",
+    "/tic-tac-toe_angular/assets/github.svg": "9d9fa575716ebd1be46876ccb2512870319a960d",
     "/tic-tac-toe_angular/assets/icons/tic-tac-toe-128.png": "2328a44cf82020a3dba947789dcb8ea6b51d302e",
     "/tic-tac-toe_angular/assets/icons/tic-tac-toe-16.png": "20c5b95886a4c2a574776f5a4949fe94d22d1938",
     "/tic-tac-toe_angular/assets/icons/tic-tac-toe-24.png": "196e994b345b1f8b534a135e7405513409351d01",
@@ -56,8 +56,8 @@
     "/tic-tac-toe_angular/assets/icons/tic-tac-toe-64.png": "363c6d04230d35675e67385d574c57555161b892",
     "/tic-tac-toe_angular/assets/refresh.svg": "7000313a74543e81c7e5cb23cd27d89a4c5a1854",
     "/tic-tac-toe_angular/assets/x.svg": "159c75fa84fdaba902874b859f25d0a313d2696f",
-    "/tic-tac-toe_angular/index.html": "51ed48b9676138958ab85775005ef93346104d1c",
-    "/tic-tac-toe_angular/main.8edf0fda84a5bd48.js": "8ec5b6e8960decd7915b4a0eb1c35e9371e9e3ef",
+    "/tic-tac-toe_angular/index.html": "0186888cacf692361b062764b23f6c0b12f411d7",
+    "/tic-tac-toe_angular/main.7ca50fa99a6917be.js": "eeee3ede235aed5694e66c4e8a80955c51be0393",
     "/tic-tac-toe_angular/manifest.webmanifest": "c652a14140a343db73e8bf5de0f3c2033b7bd7cc",
     "/tic-tac-toe_angular/polyfills.cf17f9c9def0fa07.js": "ab8b24b070f4101582db8998eba6ce7efffb6b31",
     "/tic-tac-toe_angular/runtime.39d20ba8fca8e3f8.js": "f9f2aaabfa7d03a1c3d0f5784bf89d907d0a4b05",
