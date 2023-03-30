@@ -2,7 +2,7 @@
   <ng-container>
     <div *ngIf="playWon" [ngClass]="playWon" class="result">
       <div *ngIf="playWon !== 'draw'" [ngClass]="playWon">Congratulations! {{playWon}} won</div>
-      <div *ngIf="playWon === 'draw'" class="draw">Unentschieden!!!</div>
+      <div *ngIf="playWon === 'draw'" class="draw">Draw!</div>
     </div>
     <img *ngIf="!playWon" alt="cell" class="current-player" src="./assets/{{player}}.svg"/>
   </ng-container>
@@ -16,7 +16,7 @@
   </div>
 
   <button (click)="onReset()">
-    <img alt="refresh" src="../assets/refresh.svg"/>
+    <img alt="refresh" src="./assets/refresh.svg"/>
   </button>
 
 </main>
