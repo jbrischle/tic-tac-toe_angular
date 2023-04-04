@@ -9,7 +9,7 @@
         "files": [
           "/index.html",
           "/manifest.webmanifest",
-          "/*.scss",
+          "/*.css",
           "/*.js",
           "/assets/circle.svg",
           "/assets/github.svg",

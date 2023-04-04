@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
 
 type icon = 'circle' | 'x';
 type cell = icon | null;
@@ -11,8 +12,19 @@ type game = { player: icon, field: cell[], playWon: result };
              styleUrls:       ['./app.component.scss'],
              changeDetection: ChangeDetectionStrategy.OnPush
            })
-export class AppComponent {
+export class AppComponent implements OnInit {
   game: game = this.resetGame();
+
+  constructor(private swUpdate: SwUpdate) {
+  }
+
+  ngOnInit() {
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.versionUpdates.subscribe((evt) => {
+        console.log(evt);
+      });
+    }
+  }
 
   onClick(field: number) {
     if (this.game.playWon) {
