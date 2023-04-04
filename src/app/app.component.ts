@@ -15,15 +15,11 @@ type game = { player: icon, field: cell[], playWon: result };
 export class AppComponent implements OnInit {
   game: game = this.resetGame();
 
-  constructor(private swUpdate: SwUpdate) {
+  constructor(private readonly swUpdate: SwUpdate) {
   }
 
   ngOnInit() {
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.versionUpdates.subscribe((evt) => {
-        console.log(evt);
-      });
-    }
+    this.checkForVersionUpdates();
   }
 
   onClick(field: number) {
@@ -42,6 +38,21 @@ export class AppComponent implements OnInit {
 
   onReset(): void {
     this.game = this.resetGame();
+  }
+
+  private checkForVersionUpdates() {
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.versionUpdates.subscribe((evt) => {
+        console.log(evt);
+        const updateApp = window.confirm(`
+          Update available.
+          Do you wish to install?
+        `);
+        if (updateApp) {
+          window.location.reload();
+        }
+      });
+    }
   }
 
   private resetGame(): game {
