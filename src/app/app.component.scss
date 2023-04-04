@@ -34,6 +34,11 @@ main {
   justify-content: center;
 
   background-color: var(--color-field);
+
+  img {
+    width: inherit;
+    height: inherit;
+  }
 }
 
 .result {
