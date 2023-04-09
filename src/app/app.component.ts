@@ -43,7 +43,9 @@ export class AppComponent implements OnInit {
   private checkForVersionUpdates() {
     if (this.swUpdate.isEnabled) {
       this.swUpdate.versionUpdates.subscribe((evt) => {
-        console.log(evt);
+        if (evt.type === 'NO_NEW_VERSION_DETECTED') {
+          return;
+        }
         const updateApp = window.confirm(`
           Update available.
           Do you wish to install?
