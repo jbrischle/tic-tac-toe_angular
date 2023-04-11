@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 
-type icon = 'circle' | 'x';
-type cell = icon | null;
-type result = icon | 'draw' | null
-type game = { player: icon, field: cell[], playWon: result };
+type player = 'circle' | 'x';
+type cell = player | null;
+type result = player | 'draw' | null
+type game = { player: player, field: cell[], playWon: result };
 
 @Component({
              selector:        'app-root',
@@ -32,110 +32,87 @@ export class AppComponent implements OnInit {
     }
 
     this.game.field[field] = this.game.player;
-    this.game.player = this.game.player === 'circle' ? 'x' : 'circle';
-    this.checkGameEndCondition();
+    this.game.player = this.nextPlayer(this.game.player);
+    this.game.playWon = this.checkGameEndCondition();
   }
 
   onReset(): void {
     this.game = this.resetGame();
   }
 
+  private nextPlayer(currentPlayer: player): player {
+    return currentPlayer === 'circle' ? 'x' : 'circle';
+  }
+
   private checkForVersionUpdates() {
-    if (this.swUpdate.isEnabled) {
-      this.swUpdate.versionUpdates.subscribe((evt) => {
-        if (evt.type === 'NO_NEW_VERSION_DETECTED') {
-          return;
-        }
-        const updateApp = window.confirm(`
+    if (!this.swUpdate.isEnabled) {
+      return;
+    }
+
+    this.swUpdate.versionUpdates.subscribe((evt) => {
+      if (evt.type === 'NO_NEW_VERSION_DETECTED') {
+        return;
+      }
+      const updateApp = window.confirm(`
           Update available.
           Do you wish to install?
         `);
-        if (updateApp) {
-          window.location.reload();
-        }
-      });
-    }
+      if (updateApp) {
+        window.location.reload();
+      }
+    });
   }
 
   private resetGame(): game {
-    const DEFAULT_GAME = {
+    return {
       player: 'circle', field: [null, null, null, null, null, null, null, null, null], playWon: null
     };
-    return JSON.parse(JSON.stringify(DEFAULT_GAME));
   }
 
-  private checkGameEndCondition(): void {
-    if ((this.game.field[0] === 'circle' &&
-         this.game.field[3] === 'circle' &&
-         this.game.field[6] === 'circle')
-        ||
-        (this.game.field[1] === 'circle' &&
-         this.game.field[4] === 'circle' &&
-         this.game.field[7] === 'circle')
-        ||
-        (this.game.field[2] === 'circle' &&
-         this.game.field[5] === 'circle' &&
-         this.game.field[8] === 'circle')
-        ||
-        (this.game.field[0] === 'circle' &&
-         this.game.field[1] === 'circle' &&
-         this.game.field[2] === 'circle')
-        ||
-        (this.game.field[3] === 'circle' &&
-         this.game.field[4] === 'circle' &&
-         this.game.field[5] === 'circle')
-        ||
-        (this.game.field[6] === 'circle' &&
-         this.game.field[7] === 'circle' &&
-         this.game.field[8] === 'circle')
-        ||
-        (this.game.field[0] === 'circle' &&
-         this.game.field[4] === 'circle' &&
-         this.game.field[8] === 'circle')
-        ||
-        (this.game.field[2] === 'circle' &&
-         this.game.field[4] === 'circle' &&
-         this.game.field[6] === 'circle')) {
-      this.game.playWon = 'circle';
-      return;
+  private checkGameEndCondition(): result {
+    if (this.hasPlayerWon('circle')) {
+      return 'circle';
     }
-    if ((this.game.field[0] === 'x' &&
-         this.game.field[3] === 'x' &&
-         this.game.field[6] === 'x')
-        ||
-        (this.game.field[1] === 'x' &&
-         this.game.field[4] === 'x' &&
-         this.game.field[7] === 'x')
-        ||
-        (this.game.field[2] === 'x' &&
-         this.game.field[5] === 'x' &&
-         this.game.field[8] === 'x')
-        ||
-        (this.game.field[0] === 'x' &&
-         this.game.field[1] === 'x' &&
-         this.game.field[2] === 'x')
-        ||
-        (this.game.field[3] === 'x' &&
-         this.game.field[4] === 'x' &&
-         this.game.field[5] === 'x')
-        ||
-        (this.game.field[6] === 'x' &&
-         this.game.field[7] === 'x' &&
-         this.game.field[8] === 'x')
-        ||
-        (this.game.field[0] === 'x' &&
-         this.game.field[4] === 'x' &&
-         this.game.field[8] === 'x')
-        ||
-        (this.game.field[2] === 'x' &&
-         this.game.field[4] === 'x' &&
-         this.game.field[6] === 'x')) {
-      this.game.playWon = 'x';
-      return;
+    if (this.hasPlayerWon('x')) {
+      return 'x';
     }
-
     if (this.game.field.filter(Boolean).length === 9) {
-      this.game.playWon = 'draw';
+      return 'draw';
     }
+    return null;
+  }
+
+  private hasPlayerWon(player: player) {
+    return (this.game.field[0] === player &&
+            this.game.field[3] === player &&
+            this.game.field[6] === player)
+           ||
+           (this.game.field[1] === player &&
+            this.game.field[4] === player &&
+            this.game.field[7] === player)
+           ||
+           (this.game.field[2] === player &&
+            this.game.field[5] === player &&
+            this.game.field[8] === player)
+           ||
+           (this.game.field[0] === player &&
+            this.game.field[1] === player &&
+            this.game.field[2] === player)
+           ||
+           (this.game.field[3] === player &&
+            this.game.field[4] === player &&
+            this.game.field[5] === player)
+           ||
+           (this.game.field[6] === player &&
+            this.game.field[7] === player &&
+            this.game.field[8] === player)
+           ||
+           (this.game.field[0] === player &&
+            this.game.field[4] === player &&
+            this.game.field[8] === player)
+           ||
+           (this.game.field[2] === player &&
+            this.game.field[4] === player &&
+            this.game.field[6] === player);
   }
 }

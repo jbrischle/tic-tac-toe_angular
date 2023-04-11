@@ -2,7 +2,7 @@
   "name": "tic-tac-toe",
   "version": "0.0.0",
   "scripts": {
-    "start": "ng serve --open",
+    "start": "ng serve",
     "build": "ng build --configuration production --base-href=/tic-tac-toe/ && npm run git-add-docs",
     "git-add-docs": "git add docs/"
   },
