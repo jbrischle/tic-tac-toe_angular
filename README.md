@@ -4,9 +4,10 @@
 
 Build with Angular and deployed on GitHub Pages.
 
-## Publish application via github-pages
+## Deployment
 
-1. run "npm build"
-2. commit the changes made in /docs
+https://vercel.com/dashboard
 
-The /docs folder contains the deployed application.
+## Site
+
+https://tic-tac-toe.jbrischle.dev/
