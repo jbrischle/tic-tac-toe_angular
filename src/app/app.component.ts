@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     this.checkForVersionUpdates();
   }
 
-  onClick(field: number) {
+  onClick(field: number): void {
     if (this.game.playWon) {
       return;
     }
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     return currentPlayer === 'circle' ? 'x' : 'circle';
   }
 
-  private checkForVersionUpdates() {
+  private checkForVersionUpdates(): void {
     if (!this.swUpdate.isEnabled) {
       return;
     }
@@ -82,7 +82,7 @@ export class AppComponent implements OnInit {
     return null;
   }
 
-  private hasPlayerWon(player: player) {
+  private hasPlayerWon(player: player): boolean {
     return (this.game.field[0] === player &&
             this.game.field[3] === player &&
             this.game.field[6] === player)
